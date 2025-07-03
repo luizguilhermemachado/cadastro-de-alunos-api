@@ -1,6 +1,6 @@
 import { Router} from "express";
 import alunoController from "../controllers/alunoController.js";
-import loginRequired from "../middlewares/loginRequired"
+import loginRequired from "../middlewares/loginRequired.js"
 
 const router = new Router()
 
