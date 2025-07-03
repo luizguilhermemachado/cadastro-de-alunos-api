@@ -19,6 +19,7 @@ class FotoController{
           const foto = await Foto.create({originalname, filename, aluno_id})
 
           return res.json(foto)
+      // eslint-disable-next-line no-unused-vars
       }catch (error) {
           return res.status(400).json({
           errors: ['Aluno não existe']
