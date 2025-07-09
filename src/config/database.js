@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-module.exports = {
+export default {
   dialect: 'mariadb',
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,

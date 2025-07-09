@@ -6,14 +6,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 dotenv.config()
 
-import './src/database/index.js'
+import './database/index.js'
 
 import express from 'express'
-import homeRoutes from './src/routes/homeRoutes.js'
-import userRoutes from './src/routes/userRoutes.js'
-import tokenRoutes from './src/routes/tokenRoutes.js'
-import alunoRoutes from './src/routes/alunoRoutes.js'
-import fotoRoutes from './src/routes/fotoRoutes.js'
+import cors from 'cors'
+import helmet from 'helmet';
+
+import homeRoutes from './routes/homeRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import tokenRoutes from './routes/tokenRoutes.js'
+import alunoRoutes from './routes/alunoRoutes.js'
+import fotoRoutes from './routes/fotoRoutes.js'
 
 class App {
   constructor(){
@@ -22,6 +25,8 @@ class App {
     this.routes()
   }
   middlewares(){
+    this.app.use(cors())
+    this.app.use(helmet())
     this.app.use(express.urlencoded({extended: true}))
     this.app.use(express.json())
     this.app.use(express.static(resolve(__dirname, 'uploads')))
